@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Wine Website</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header" style="margin-left: 5vw;">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW50ZDVrNnkyNHFoOGJpZnZqZnRyYnA3Z3pzOTF3Z3NmY2xsZnFvdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/6pnu44qMqOcNBG7fxq/giphy.gif" alt="Logo" class="logo">
+        <h1>Wine</h1>
+    </header>
+
+
+<style>
+/* Reset and General Styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #332423; /* Deep wine red text color */
+    background-color: #f9f0e3; /* Light cream background */
+}
+
+a {
+    color: #5b001e;
+    text-decoration: none;
+    transition: 1s;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #5b001e;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #a41c38; /* Darker wine red navigation */
+    color: #ffeba7; /* Light wine text color */
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    font-size: 1.2rem;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('path/to/your/hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #2f2c21;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Card */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 30vw;
+    padding: 20px;
+    margin: 20px;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #a41c38;
+    color: #ffeba7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5b001e;
+    color: #ffcdab;
+}
+
+/* Footer */
+.footer {
+    background-color: #332423; /* Dark wine footer */
+    color: #ffeba7; /* Light wine text color */
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Responsive Design (Media Queries) */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+}
+.wine-image {
+    width: 300px; /* Set the desired width */
+    height: auto; /* Allow height to adjust proportionally */
+    margin: 20px auto; /* Center the image */
+    display: block;
+}
+
+</style>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a  href="wine_quality.html">Wine Quality</a></li>
+            <li><a onclick="redirectToAnotherPage()">Wine</a></form></li>
+            <li><a href="">Team</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h2>Discover the Finest Wines</h2>
+        <p>Indulge in the rich flavors and aromas of our exquisite wine selection.</p>
+        <a href="#" class="btn">Explore Wines</a>
+    </section>
+
+    <section class="card">
+        <h2>Featured Wine</h2>
+            <div class="card-content">
+                <img style="margin-right: 100vw;" src="https://images.ctfassets.net/8x8155mjsjdj/1af9dvSFEPGCzaKvs8XQ5O/a7d4adc8f9573183394ef2853afeb0b6/Copy_of_Red_Wine_Blog_Post_Header.png" alt="Featured Wine" class="wine-image">
+                <p>Experience the elegance and complexity of our finest vintage.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </section>
+
+    </section>
+
+    <section>
+        <span id="heading">Simple automatic slider</span>
+        <div id="slider">
+        <div class="slides">
+          <img src="https://images.ctfassets.net/8x8155mjsjdj/1af9dvSFEPGCzaKvs8XQ5O/a7d4adc8f9573183394ef2853afeb0b6/Copy_of_Red_Wine_Blog_Post_Header.png" width="100%" />
+         </div>
+           <div class="slides">
+          <img src="https://www.leftbankwine.com/images/news/wine-gradient-1024x563.jpg" width="100%" />
+        </div>
+
+        <div class="slides">
+          <img src="https://media.winefolly.com/different-types-of-wine.jpg" width="100%" />
+        </div>
+
+          <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+         </div>
+
+         <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+@keyframes fade{
+  from{
+    opacity:0.4;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+
+#slider{
+  margin:0 auto;
+  width:80%;
+  overflow:hidden;
+}
+
+.slides{
+  overflow:hidden;
+  animation-name:fade;
+  animation-duration:1s;
+  display:none;
+}
+
+img{
+  width:100%;
+}
+
+#dot{
+  margin:0 auto;
+  text-align:center;
+}
+.dot{
+  display:inline-block;
+  border-radius:50%;
+  background:#d3d3d3;
+  padding:8px;
+  margin:10px 5px;
+}
+
+.active{
+  background:black;
+}
+
+@media (max-width:567px){
+  #slider{
+    width:100%;
+
+  }
+}
+
+#heading{
+  display:block;
+  text-align:center;
+  font-size:2em;
+  margin:10px 0px;
+
+}
+</style>
+
+<script>
+    var index = 0;
+var slides = document.querySelectorAll(".slides");
+var dot = document.querySelectorAll(".dot");
+
+function changeSlide(){
+
+  if(index<0){
+    index = slides.length-1;
+  }
+
+  if(index>slides.length-1){
+    index = 0;
+  }
+
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display = "none";
+    dot[i].classList.remove("active");
+  }
+
+  slides[index].style.display= "block";
+  dot[index].classList.add("active");
+
+  index++;
+
+  setTimeout(changeSlide,2000);
+
+}
+
+changeSlide();
+
+
+function redirectToAnotherPage() {
+            window.location.href = "{% url 'wine_quality' %}";
+        }
+</script>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Wine Team - 1. All rights reserved.</p>
+    </footer>
+</body>
+</html>

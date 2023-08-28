@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Predictor</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+  <style>
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f9f0e3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.glassmorphism {
+    background: rgba(181, 1, 1, 0.53);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+.side-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.left {
+    left: -100px;
+}
+
+.right {
+    right: -100px;
+    transform: scaleX(-1);
+}
+
+.form-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #5b001e;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #5b001e;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #a41c38;
+}
+
+.submit-btn {
+    background-color: #a41c38;
+    color: #ffeba7;
+    padding: 12px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.input-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  font-size: 14px;
+  margin-left: 10vw;
+}
+
+
+.submit-btn:hover {
+    background-color: #5b001e;
+}
+ </style>
+     <div class="container">
+      <div class="glassmorphism">
+          <img src="img/left-image.jpg" alt="Left Image" class="side-image left">
+          <div class="form-content">
+              <h2 class="form-title">Wine Quality Predictor</h2>
+              <form method="post" action="{% url 'wine_quality' %}">
+    {% csrf_token %}
+            <div class="input-group">
+                <label for="volatile_acidity" >volatile acidity</label>
+                <input type="number" title="for example: 0.00001" id="volatile_acidity" name="volatile_acidity" step="0.00001" required>
+            </div>
+            <div class="input-group">
+                <label for="fixed_acidity">fixed acidity</label>
+                <input type="number" id="fixeda_acidity" name="fixed_acidity" step="0.00001" required>
+            </div>
+            <div class="input-group">
+                <label for="residual_sugar" >Residual Sugar</label>
+                <input type="number" title="for example: 0.00001" id="residual_sugar" name="residual_sugar" step="0.00001" required>
+            </div>
+            <div class="input-group">
+                <label for="chlorides">Chlorides</label>
+                <input type="number" id="chlorides" name="chlorides" step="0.00001" required>
+            </div>
+            <button type="submit"onclick="redirectToAnotherPage()" class="submit-btn" >Submit</button>
+          </form>
+      </div>
+  </div>
+  <!-- <img src="img/right-image.jpg" alt="Right Image" class="side-image right"> -->
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const inputGroups = document.querySelectorAll(".input-group");
+      const cardContainer = document.createElement("div");
+      cardContainer.classList.add("card-container");
+      document.body.appendChild(cardContainer);
+      const aggregatedCard = document.createElement("div");
+      aggregatedCard.classList.add("input-card");
+      cardContainer.appendChild(aggregatedCard);
+
+      inputGroups.forEach((inputGroup) => {
+        const input = inputGroup.querySelector("input");
+        const label = inputGroup.querySelector("label").textContent;
+
+        input.addEventListener("input", function () {
+          const value = input.value;
+          const info = document.createElement("p");
+          info.innerHTML = `<strong>${label}:</strong> ${value}`;
+          info.classList.add(input.id);
+          const existingInfo = aggregatedCard.querySelector(`p.${input.id}`);
+          if (existingInfo) {
+            existingInfo.innerHTML = info.innerHTML;
+          } else {
+            aggregatedCard.appendChild(info);
+          }
+          // const submitButton = document.querySelector(".submit-btn");
+          // if (submitButton) {
+          //   aggregatedCard.appendChild(submitButton);
+          // }
+        });
+      });
+    });
+
+    function redirectToAnotherPage() {
+                window.location.href = "{% url 'wine_quality' %}";
+            }
+  </script>
+
+
+</body>
+</html>
